@@ -1,0 +1,120 @@
+/*
+O programa deve permitir:
+- Ler os dados do arquivo.
+- Escolher o tipo de ordenacao.
+    UF alfabetica;
+    Casos graves;
+    Obitos;
+    Diferenca(2023-2024);
+- Aplicar Merge sort.
+- Exibir os dados ordenados.
+Objetivo final:
+- Filtra por regiao para ordenar.
+- Salvar resultados ordenados em arquivos separados.
+- Criterio de ordenacao:
+    UF; Graves_2023; Graves_2024; Moretes_2023; Mortes_2024; DIFF_graves; DIFF_mortes.
+dengue.txt
+*/
+#include <stdio.h>
+#include "dadosDengue.h"
+#include "ordenar.h"
+
+int pegarDadosDeReg(int reg, char *caminho);
+
+int main (void){
+    tipoEscolha op;
+
+    dadosDengue *tabelaRegiao;
+
+    do{
+        printf("\nQual regiao gostaria de ordenar?");
+        printf("\n[1] Centro-Oeste"
+            "\n[2] Nordeste"
+            "\n[3] Norte"
+            "\n[4] Sudeste"
+            "\n[5] Sul\n- ");
+    } while(op.reg < 1 || op.reg > 5);
+    
+    op.qntUF = pegarDadosDeReg(op.reg, op.path);
+
+    tabelaRegiao = (dadosDengue *) calloc(op.qntUF, sizeof(dadosDengue));
+
+    do{
+        printf("\nEscolha o tipo de ordenacao: ");
+        printf("\n[1] UF alfabetica"
+                "\n[2] Casos graves 2023"
+                "\n[3] Obitos por dengue 2023"
+                "\n[4] Casos graves 2024"
+                "\n[5] Obitos por dengue 2024"
+                "\n[6] Diferenca de casos graves"
+                "\n[7] Diferenca de obitos por dengue\n- ");
+        scanf("%d", &op.tipo);
+    } while(op.tipo);
+    
+    do{
+        printf("\nComo sera ordenado?");
+        printf("\n[1] Crescente"
+                "\n[2] Decrescente\n- ");
+    } while(op.modo < 1 || op.modo > 2);
+
+    switch (op.tipo){
+        case 1:
+
+        break;
+        case 2:
+
+        break;
+        case 3:
+
+        break;
+        case 4:
+
+        break;
+        case 5:
+
+        break;
+        case 6:
+
+        break;
+        case 7:
+
+        break;
+        default:
+            printf("\nInvalido!\n");
+    }
+
+    // lembrar de liberar memoria
+    free(tabelaRegiao);
+
+    prinf("\n\nDigite Enter para sair...\n");
+    while((getchar()) != '\n');
+    getchar();
+    return 0;
+}
+
+int pegarDadosDeReg(int reg, char* caminho){
+    switch (reg){
+    case 1:
+        strcpy(caminho, './Arquivo das regiões/dengueSul.txt');
+        return 4;
+    break;
+    case 2:
+        strcpy(caminho, './Arquivo das regiões/dengueSul.txt');
+        return 9;
+    break;
+    case 3:
+        strcpy(caminho, './Arquivo das regiões/dengueSul.txt');
+        return 7;
+    break;
+    case 4:
+        strcpy(caminho, './Arquivo das regiões/dengueSul.txt');
+        return 4;
+    break;
+    case 5:
+        strcpy(caminho, './Arquivo das regiões/dengueSul.txt');
+        return 3;
+    break;
+    default:
+        printf("\nInvalido!\n");
+    }
+}
