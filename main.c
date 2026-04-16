@@ -61,12 +61,14 @@ int main (void){
     } while(op.modo < 1 || op.modo > 2);
 
     if (op.tipo == 1){ 
-        //escolhaOrdenarChar(tabelaRegiao, tipoEscolha op);
+        escolhaOrdenarChar(tabelaRegiao, tipoEscolha op);
     }
     else {
         escolhaOrdenarInt(tabelaRegiao, op);
     }
 
+    //exibir a tabela ordenada
+        
     // lembrar de liberar memoria
     free(tabelaRegiao);
 
